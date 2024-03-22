@@ -1,0 +1,11 @@
+
+.bottom-footer {
+  background-color: #007bff;
+  padding: 50px 0px;
+  margin-top: 10px;
+}
+
+.bottom-footer-inner {
+    display: flex;
+    justify-content: space-between;
+}
