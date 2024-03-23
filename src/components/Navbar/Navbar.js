@@ -14,19 +14,19 @@ const Navbar = () => {
     <div className="top-navbar">
       <nav className="max-width">
         <div className="top-navbar-right">
-          <Link href="/">GB Auctions</Link>
+          <Link to="/">GB Auctions</Link>
           <div className="togggle-bar" onClick={toggleNavbar}>
             <Menu fontSize={50} />
           </div>
         </div>
         <div className={`top-navbar-center ${showNavbar && "active"}`}>
-          <Link href="/">Home</Link>
-          <Link href="/">Auction</Link>
-          <Link href="/">About Us</Link>
-          <Link href="/">Contact</Link>
+          <Link to="/">Home</Link>
+          <Link to="/auction">Auction</Link>
+          <Link to="/about">About Us</Link>
+          <Link to="/contact">Contact</Link>
         </div>
         <div className="top-navbar-left">
-          <Link href="/">
+          <Link to="/login">
             <button>Login</button>
           </Link>
         </div>

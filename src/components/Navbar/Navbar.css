@@ -8,10 +8,14 @@
 .max-width {
   max-width: 1440px;
   margin: auto;
+  font-family: Montserrat;
 }
 
 a {
   text-decoration: none;
+}
+li {
+  list-style: none;
 }
 
 .top-navbar {
@@ -24,6 +28,7 @@ a {
   justify-content: space-between;
   align-items: center;
   font-family: Montserrat;
+  padding: 0px 50px;
 }
 
 .top-navbar .top-navbar-right {
