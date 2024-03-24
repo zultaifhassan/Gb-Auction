@@ -1,0 +1,60 @@
+.home-page-content {
+  padding: 0 50px;
+  display: flex;
+  gap: 50px;
+}
+
+.homepage-left {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+}
+
+.homepage-left h1 {
+  font-size: 60px;
+}
+
+.homepage-left p {
+  width: 80%;
+  line-height: 30px;
+  font-size: 20px;
+}
+
+.homepage-left button {
+  padding: 20px 30px;
+  width: 35%;
+  font-family: Montserrat;
+  margin-top: 5px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 147, 255, 1);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 90, 121, 1) 0%,
+    rgba(0, 147, 255, 1) 37%,
+    rgba(1, 147, 254, 1) 38%
+  );
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.homepage-left button:hover {
+  border: 1px solid rgba(0, 147, 255, 1);
+  background: transparent;
+  color: rgba(0, 147, 255, 1);
+}
+
+.homepage-right {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.homepage-right img {
+  width: 95%;
+}

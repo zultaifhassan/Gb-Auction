@@ -10,9 +10,9 @@ const Signup = () => {
         <div className="login-page-inner">
           <div className="login-account">
             <form>
-              <h1>Get Started Now</h1>
+              <h1>Create Account Now</h1>
               <p>We're happy you're here!</p>
-              <h2>Login To GB Auction</h2>
+              <h2>Signup To GB Auction</h2>
               <div className="login-inputs">
                 <span>
                   <User />

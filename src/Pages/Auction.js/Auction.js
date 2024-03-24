@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import './Auction.css'
 
 const Auction = () => {
   return (
-    <h1>Auction</h1>
-  )
-}
+    <div className="max-width auction-page-first">
+      <h1>Auction</h1>
+    </div>
+  );
+};
 
-export default Auction
+export default Auction;
