@@ -18,7 +18,7 @@ const Review = () => {
     <div className="review-slider-outer">
       <div className="max-width outer-slider">
         <div className="review-slider-head">
-          <h1>Client Reviews</h1>
+          <h1>Clients Reviews</h1>
           <p>
             "Our priority is ensuring
             client satisfaction. We are dedicated to understanding and

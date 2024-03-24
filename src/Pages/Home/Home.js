@@ -1,6 +1,7 @@
 import React from "react";
 import "./Home.css";
 import Review from '../../components/Review/Review'
+import Category from "../../components/CategoriesSlider/Category";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
         <img src="/Images/home-main.jpg" alt="" />
       </div>
     </div>
+    <Category />
     <Review />
     </>
   );

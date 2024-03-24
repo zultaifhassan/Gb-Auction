@@ -13,13 +13,15 @@
 }
 
 .homepage-left h1 {
-  font-size: 60px;
+  font-size: 65px;
+  letter-spacing: 2px;
 }
 
 .homepage-left p {
-  width: 80%;
+  width: 90%;
   line-height: 30px;
   font-size: 20px;
+  letter-spacing: 1px;
 }
 
 .homepage-left button {
