@@ -30,6 +30,7 @@ const Review = () => {
         <Swiper
           className="mySwiper"
           navigation={true}
+          loop={true}
           modules={[Navigation]}
           slidesPerView={1}
           spaceBetween={10}

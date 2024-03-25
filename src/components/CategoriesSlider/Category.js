@@ -21,6 +21,7 @@ const Category = () => {
         <Swiper
           className="mySwiper"
           navigation={true}
+          loop={true}
           modules={[Navigation]}
           slidesPerView={1}
           spaceBetween={10}
@@ -31,47 +32,53 @@ const Category = () => {
             },
             768: {
               slidesPerView: 3,
-              spaceBetween: 40,
+              spaceBetween: 30,
             },
             1024: {
-              slidesPerView: 5,
-              spaceBetween: 50,
+              slidesPerView: 6,
+              spaceBetween: 20,
             },
           }}>
           <SwiperSlide>
             <div className="category-slider-inner">
-              <img src="/Images/user.jpg" alt="" />
+              <img src="/Images/cat/vehicle.png" alt="" />
               <h1>Vehicles</h1>
             </div>
             </SwiperSlide>
             <SwiperSlide>
             <div className="category-slider-inner">
-              <img src="/Images/user.jpg" alt="" />
-              <h1>Vehicles</h1>
+              <img src="/Images/cat/diamaod.png" alt="" />
+              <h1>Jewelery</h1>
             </div>
             </SwiperSlide>
             <SwiperSlide>
             <div className="category-slider-inner">
-              <img src="/Images/user.jpg" alt="" />
-              <h1>Vehicles</h1>
+              <img src="/Images/cat/watch.png" alt="" />
+              <h1>Watches</h1>
             </div>
             </SwiperSlide>
             <SwiperSlide>
             <div className="category-slider-inner">
-              <img src="/Images/user.jpg" alt="" />
-              <h1>Vehicles</h1>
+              <img src="/Images/cat/camera.png" alt="" />
+              <h1>Electronics</h1>
             </div>
             </SwiperSlide>
             <SwiperSlide>
             <div className="category-slider-inner">
-              <img src="/Images/user.jpg" alt="" />
-              <h1>Vehicles</h1>
+              <img src="/Images/cat/sport.png" alt="" />
+              <h1>Sporst</h1>
             </div>
             </SwiperSlide>
             <SwiperSlide>
             <div className="category-slider-inner">
-              <img src="/Images/user.jpg" alt="" />
-              <h1>Vehicles</h1>
+              <img src="/Images/cat/realstate.png" alt="" />
+              <h1>Real State</h1>
+            </div>
+            </SwiperSlide>
+            <SwiperSlide>
+            <div className="category-slider-inner">
+              <img src="/Images/cat/realstate.png" alt="" />
+              <h1>Real State</h1>
             </div>
             </SwiperSlide>
         </Swiper>

@@ -19,7 +19,13 @@ li {
 }
 
 .top-navbar {
-  background-color: #007bff;
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 90, 121, 1) 0%,
+    rgba(0, 147, 255, 1) 37%,
+    rgba(1, 147, 254, 1) 38%
+  );
   padding: 25px 0px;
 }
 

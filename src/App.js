@@ -8,6 +8,7 @@ import About from "./Pages/About/About";
 import Auction from "./Pages/Auction.js/Auction"
 import './App.css'
 import Signup from "./Pages/Signup/Signup";
+import Subscribe from "./components/Suscribe/Subscribe";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/auction" element={<Auction />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>
+      <Subscribe />
       <Footer />
     </div>
   );
