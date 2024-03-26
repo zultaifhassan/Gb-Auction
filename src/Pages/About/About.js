@@ -20,7 +20,7 @@ const About = () => {
           </p>
         </div>
         <div className="about-left-side">
-          <img src="/Images/about.jpg" alt="" />
+          <img src="/Images/about.png" alt="" />
         </div>
       </div>
       <div className="max-width about-page-second">

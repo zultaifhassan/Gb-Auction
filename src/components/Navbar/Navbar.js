@@ -15,7 +15,7 @@ const Navbar = () => {
       <nav className="max-width">
         <div className="top-navbar-right">
           <Link to="/">
-            <img src="/Images/bid-2.svg" alt="" />
+            <img src="/Images/logo.png" alt="" />
           </Link>
           <div className="togggle-bar" onClick={toggleNavbar}>
             <Menu fontSize={50} />

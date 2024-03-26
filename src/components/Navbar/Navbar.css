@@ -37,9 +37,13 @@ li {
   padding: 0px 50px;
 }
 
-.top-navbar .top-navbar-right {
-  font-size: 30px;
-  font-weight: 500;
+.top-navbar .top-navbar-right a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.top-navbar .top-navbar-right img {
+  height: 60px;
 }
 .top-navbar .top-navbar-right a {
   color: #fff;
@@ -69,6 +73,7 @@ li {
   cursor: pointer;
   font-size: 16px;
   color: #007bff;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 }
 
 .top-navbar .top-navbar-left button:hover {

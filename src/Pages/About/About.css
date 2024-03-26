@@ -3,7 +3,7 @@
     padding: 0px 50px;
     display: flex;
     justify-content: space-between;
-    gap: 50px;
+    gap: 30px;
 }
 
 .about-right-side {
@@ -29,7 +29,6 @@
     line-height: 25px;
 }
 .about-left-side {
-    width: 40%;
     display: flex;
 }
 
