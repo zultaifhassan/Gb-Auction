@@ -37,6 +37,9 @@ li {
   padding: 0px 50px;
 }
 
+.top-navbar-right {
+  padding: auto;
+}
 .top-navbar .top-navbar-right a {
   display: flex;
   align-items: center;
@@ -44,6 +47,7 @@ li {
 }
 .top-navbar .top-navbar-right img {
   height: 60px;
+  margin: auto;
 }
 .top-navbar .top-navbar-right a {
   color: #fff;

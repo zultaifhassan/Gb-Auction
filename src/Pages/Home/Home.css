@@ -254,15 +254,15 @@
     rgba(1, 147, 254, 1) 38%
   );
 
-  margin: auto;
-  margin-top: 5px;
+  margin: 10px auto 20px auto;
   border-radius: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
   font-weight: 500;
-  font-size: 20px;  
+  font-size: 20px; 
+  border: 1px solid rgba(0, 147, 255, 1); 
 }
 .product-name a:hover {
   background: transparent;

@@ -59,14 +59,14 @@ const Home = () => {
                   <h2>2019 Nissan Versa, S</h2>
                   <div className="bidding-information">
                     <div className="current-biding">
-                      <img src="/Images/hammer.png" />
+                      <img src="/Images/hammer.png" alt="" />
                       <span>
                         <p>Current Bid</p>
                         <h5>$880.00</h5>
                       </span>
                     </div>
                     <div className="buynow-biding">
-                      <img src="/Images/dollar.png" />
+                      <img src="/Images/dollar.png" alt="" />
                       <span>
                         <p>Buy Now</p>
                         <h5>$1500.00</h5>
@@ -103,14 +103,14 @@ const Home = () => {
                   <h2>2019 Nissan Versa, S</h2>
                   <div className="bidding-information">
                     <div className="current-biding">
-                      <img src="/Images/hammer.png" />
+                      <img src="/Images/hammer.png" alt="" />
                       <span>
                         <p>Current Bid</p>
                         <h5>$880.00</h5>
                       </span>
                     </div>
                     <div className="buynow-biding">
-                      <img src="/Images/dollar.png" />
+                      <img src="/Images/dollar.png" alt="" />
                       <span>
                         <p>Buy Now</p>
                         <h5>$1500.00</h5>
@@ -147,14 +147,14 @@ const Home = () => {
                   <h2>2019 Nissan Versa, S</h2>
                   <div className="bidding-information">
                     <div className="current-biding">
-                      <img src="/Images/hammer.png" />
+                      <img src="/Images/hammer.png" alt="" />
                       <span>
                         <p>Current Bid</p>
                         <h5>$880.00</h5>
                       </span>
                     </div>
                     <div className="buynow-biding">
-                      <img src="/Images/dollar.png" />
+                      <img src="/Images/dollar.png" alt="" />
                       <span>
                         <p>Buy Now</p>
                         <h5>$1500.00</h5>
