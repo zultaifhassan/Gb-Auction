@@ -9,6 +9,8 @@ import Auction from "./Pages/Auction.js/Auction"
 import './App.css'
 import Signup from "./Pages/Signup/Signup";
 import Subscribe from "./components/Suscribe/Subscribe";
+import Dashboard from "./Pages/Dashboard/Dashboard";
+import DashboardMain from "./components/dashboardMain/DashboardMain";
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/auction" element={<Auction />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/dashboard" element={<Dashboard/>}/>
+        <Route path="/dashboardMain" element={<DashboardMain/>}/>
       </Routes>
       <Subscribe />
       <Footer />
