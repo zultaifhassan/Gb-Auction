@@ -1,8 +1,31 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Star } from "react-feather";
 
 const Vehicle = () => {
+  const [time, setTime] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const now = new Date().getTime();
+      const endTime = new Date('2024-12-31').getTime(); // Set your desired end time here
+      const distance = endTime - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      setTime({ days, hours, minutes, seconds });
+    }, 1000);
+
+    return () => clearInterval(intervalId);
+  }, []);
   return (
     <div>
         <div className="max-width home-page-second">
@@ -90,10 +113,10 @@ const Vehicle = () => {
                   </div>
                   <div className="timer-total-bids">
                     <div className="days-hours-min">
-                      <span>0d :</span>
-                      <span> 11h :</span>
-                      <span> 9m :</span>
-                      <span> 0s</span>
+                      <span>{time.days}d :</span>
+                      <span> {time.hours}11h :</span>
+                      <span> {time.minutes}9m :</span>
+                      <span> {time.seconds}0s</span>
                     </div>
                     <div className="total-numer-bids">
                       <h3>30 Bids</h3>

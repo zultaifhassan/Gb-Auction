@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+    background: rgba(70, 70, 230, 0.59);
 }
 .loader {
     width: 88px;

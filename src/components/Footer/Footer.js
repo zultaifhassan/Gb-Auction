@@ -2,10 +2,12 @@ import React from "react";
 import "./Footer.css";
 import { Link } from "react-router-dom";
 import { Mail, MapPin, PhoneCall, Send, Facebook, Instagram, Linkedin, Youtube } from "react-feather";
+import Suscribe from "../Suscribe/Subscribe"
 
 const Footer = () => {
   return (
     <div className="bottom-footer">
+      <Suscribe /> 
       <div className="max-width bottom-footer-inner">
         <div className="footer-logo">
           <div className="footer-logo-text">
@@ -56,7 +58,7 @@ const Footer = () => {
               <h2>About</h2>
               <ul>
                 <li>
-                  <Link to="">Home</Link>
+                  <Link to="/dashboard/dash-main">Dashboard</Link>
                 </li>
                 <li>
                   <Link to="">About</Link>

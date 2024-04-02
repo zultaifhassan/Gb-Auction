@@ -1,26 +1,31 @@
 import React from "react";
 import "./About.css";
 import Review from "../../components/Review/Review";
+import Footer from "../../components/Footer/Footer";
+import Navbar from "../../components/Navbar/Navbar";
 
 const About = () => {
   return (
     <>
-      <div className="max-width about-pagr-inner">
-        <div className="about-right-side">
-          <h1>About Us</h1>
-          <h2>GB Auction</h2>
-          <p>
-            At Gb Auction, we're passionate about creating an electrifying
-            bidding experience where every bid counts. Our platform brings
-            together buyers and sellers in a dynamic marketplace, offering a
-            diverse range of items up for auction. With a commitment to
-            transparency, fairness, and customer satisfaction, we strive to make
-            bidding not just a transaction, but an exhilarating journey. Join us
-            and discover the thrill of winning at Bid Auctions.
-          </p>
-        </div>
-        <div className="about-left-side">
-          <img src="/Images/about.png" alt="" />
+      <Navbar />
+      <div className="about-page-first-outer">
+        <div className="max-width about-pagr-inner">
+          <div className="about-right-side">
+            <h1>About Us</h1>
+            <h2>GB Auction</h2>
+            <p>
+              At Gb Auction, we're passionate about creating an electrifying
+              bidding experience where every bid counts. Our platform brings
+              together buyers and sellers in a dynamic marketplace, offering a
+              diverse range of items up for auction. With a commitment to
+              transparency, fairness, and customer satisfaction, we strive to
+              make bidding not just a transaction, but an exhilarating journey.
+              Join us and discover the thrill of winning at Bid Auctions.
+            </p>
+          </div>
+          <div className="about-left-side">
+            <img src="/Images/about.png" alt="" />
+          </div>
         </div>
       </div>
       <div className="max-width about-page-second">
@@ -59,6 +64,7 @@ const About = () => {
         </div>
       </div>
       <Review />
+      <Footer />
     </>
   );
 };

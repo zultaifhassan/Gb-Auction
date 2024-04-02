@@ -1,5 +1,7 @@
 .login-page-outer {
   padding: 100px 50px;
+  background-image: url("/public//Images//bg-2.png");
+  background-repeat: no-repeat;
 }
 
 .login-page-inner {
@@ -11,6 +13,7 @@
   box-shadow: 0 0 15px rgba(44, 46, 69, 0.11);
   display: flex;
   gap: 20px;
+  background-color: #fff;
 }
 
 .login-account form {
@@ -81,21 +84,32 @@
 }
 
 .login-left-side {
-  background: linear-gradient(
+  /* background: linear-gradient(
     360deg,
     rgba(2, 0, 36, 1) 0%,
     rgba(9, 90, 121, 1) 0%,
     rgba(0, 147, 255, 1) 37%,
     rgba(1, 147, 254, 1) 38%
-  );
+  ); */
+  background-image: url("/public//Images//signup.jpg");
+  background-size: cover;
+  background-position: center;
+  /* background-repeat: no-repeat; */
   width: 40%;
   border-radius: 0 10px 10px 0;
   color: #fff;
-  padding: 0 40px;
+  border-radius: 10px;
+}
+.login-left-text {
+  border-radius: 10px;
+  background-color: #00000077;
+  height: 100%;
   display: flex;
   flex-direction: column;
+  gap: 30px;
+  padding: 0px 40px;
   justify-content: center;
-  gap: 20px;
+  
 }
 
 .login-left-side button {

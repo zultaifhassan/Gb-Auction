@@ -1,3 +1,14 @@
+
+.home-page-outer {
+
+  background-image: url("/public/Images/banner-bg-1.png");
+  background-repeat: no-repeat;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+  padding: 50px 0;
+}
 .home-page-content {
   padding: 0 50px;
   display: flex;
@@ -10,8 +21,13 @@
   flex-direction: column;
   justify-content: center;
   gap: 40px;
+  /* padding: 150px 0px; */
 }
-
+.homepage-left h2 {
+  font-weight: 500;
+  font-size: 30px;
+  color: rgb(211, 235, 187);
+}
 .homepage-left h1 {
   font-size: 65px;
   letter-spacing: 2px;

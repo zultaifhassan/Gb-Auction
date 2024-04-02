@@ -1,3 +1,7 @@
+
+.contact-page-outer {
+  background-image: url("/public//Images/bg-2.png");
+}
 .contact-page-inner {
   padding: 100px 50px;
 }
@@ -6,6 +10,7 @@
     border-radius: 10px;
     display: flex;
     gap: 50px;
+    background-color: #fff;
 }
 
 .contact-page form {

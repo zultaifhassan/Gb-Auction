@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "./Navbar.css";
 import { Menu } from "react-feather";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [showNavbar, setShowNavbar] = useState(false);
-
+  const location = useLocation(); 
+ 
   const toggleNavbar = () => {
     setShowNavbar(!showNavbar);
     console.log("clicked")
@@ -22,7 +23,7 @@ const Navbar = () => {
           </div>
         </div>
         <div className={`top-navbar-center ${showNavbar && "active"}`}>
-          <Link to="/">Home</Link>
+          <Link to="/" className={({ isActive }) => (isActive ? 'active' : '')}>Home</Link>
           <Link to="/auction">Auction</Link>
           <Link to="/about">About Us</Link>
           <Link to="/contact">Contact</Link>
