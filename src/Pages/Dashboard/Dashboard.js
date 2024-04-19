@@ -2,15 +2,20 @@ import React, { useState } from "react";
 import "./Dashboard.css";
 import Current from "../../components/Tables/current/Current";
 import Pending from "../../components/Tables/pending/Pending";
+import { useSelector } from "react-redux"
 
 function Dashboard() {
   const [activeTab, setActiveTab] = useState("tab1"); // Initial active tab state
+  const {user} = useSelector((state) => state.login)
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
   };
   return (
     <div>
+        <div className="user-dash-welcome">
+            <h2>Wellcome <span>{user.user.name}</span> to User Dashboard</h2>
+        </div>
       <div className="main-page-dash">
         <h1>My Activity</h1>
         <div className="main-page-dash-boxes">

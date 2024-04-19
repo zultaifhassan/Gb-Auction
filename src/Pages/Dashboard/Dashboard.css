@@ -1,4 +1,15 @@
 
+.user-dash-welcome {
+    padding: 40px 50px;
+    background-color: #fff;
+    border-radius: 20px;
+    margin-bottom: 40px;
+}
+
+.user-dash-welcome span {
+    font-size: 35px;
+    color: palevioletred;
+}
 
 .main-page-dash {
     padding: 50px;

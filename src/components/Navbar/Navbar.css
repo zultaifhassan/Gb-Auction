@@ -22,7 +22,7 @@ li {
   background: linear-gradient(
     90deg,
     rgba(2, 0, 36, 1) 0%,
-    rgba(9, 90, 121, 1) 0%,
+    rgb(233, 239, 242) 0%,
     rgba(0, 147, 255, 1) 37%,
     rgba(1, 147, 254, 1) 38%
   );
@@ -58,14 +58,16 @@ li {
 }
 .top-navbar .top-navbar-center {
   display: flex;
-  gap: 50px;
+  gap: 70px;
 }
 
 .top-navbar .top-navbar-center a {
-  font-size: 19px;
+  font-size: 20px;
   font-weight: 500;
   color: #fff;
   letter-spacing: 0.5px;
+  padding: 0 0 10px 0;
+  border-bottom: 3px solid transparent;
 }
 
 .top-navbar .top-navbar-left button {
@@ -86,9 +88,9 @@ li {
   color: #fff;
 }
 
-.top-navbar-center .active {
-  color: red !important;
-  background-color: blue;
+.top-navbar-center a.active1, .top-navbar-center a:hover {
+  color: #fff !important;
+  border-bottom: 3px solid #fff;
 }
 
 @media (max-width: 430px) {

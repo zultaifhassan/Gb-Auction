@@ -1,4 +1,11 @@
 .current-table {
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+
+.current-table h1 {
+    padding: 30px 10px;
 }
 
 .current-table table {

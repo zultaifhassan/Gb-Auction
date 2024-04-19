@@ -1,13 +1,23 @@
 import React from "react";
 import "./Footer.css";
 import { Link } from "react-router-dom";
-import { Mail, MapPin, PhoneCall, Send, Facebook, Instagram, Linkedin, Youtube } from "react-feather";
-import Suscribe from "../Suscribe/Subscribe"
+import {
+  Mail,
+  MapPin,
+  PhoneCall,
+  Send,
+  Facebook,
+  Instagram,
+  Linkedin,
+  Youtube,
+} from "react-feather";
+import { MdCopyright } from "react-icons/md";
+import Suscribe from "../Suscribe/Subscribe";
 
 const Footer = () => {
   return (
     <div className="bottom-footer">
-      <Suscribe /> 
+      <Suscribe />
       <div className="max-width bottom-footer-inner">
         <div className="footer-logo">
           <div className="footer-logo-text">
@@ -71,30 +81,38 @@ const Footer = () => {
           </div>
           <div className="social-links-input">
             <div className="suscribe-input">
-                <h2>Subscribe Newslater</h2>
-                <span>
-                  <input type="email" placeholder="Enter your email" />
-                  <Send />
-                </span>
+              <h2>Subscribe Newslater</h2>
+              <span>
+                <input type="email" placeholder="Enter your email" />
+                <Send />
+              </span>
             </div>
             <div className="suscribe-input">
-                <h2>Follow Us</h2>
-                <div className="social-icons">
-                  <div className="facebook-icon">
-                    <Facebook />
-                  </div>
-                  <div className="instagram-icon">
-                    <Instagram />
-                  </div>
-                  <div className="linkedin-icon">
-                    <Linkedin />
-                  </div>
-                  <div className="youtube-icon">
-                    <Youtube />
-                  </div>
+              <h2>Follow Us</h2>
+              <div className="social-icons">
+                <div className="facebook-icon">
+                  <Facebook />
                 </div>
+                <div className="instagram-icon">
+                  <Instagram />
+                </div>
+                <div className="linkedin-icon">
+                  <Linkedin />
+                </div>
+                <div className="youtube-icon">
+                  <Youtube />
+                </div>
+              </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div className=" max-width copyright-section">
+        <div className="copy-right-inner">
+          <span>
+            All <MdCopyright /> rights reserved to GB Auctions
+          </span>
+          <span>Develop by ZH Studio</span>
         </div>
       </div>
     </div>

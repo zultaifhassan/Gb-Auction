@@ -1,17 +1,50 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Contact.css";
 import { User, Mail, MessageSquare } from "react-feather";
 import Footer from "../../components/Footer/Footer";
 import Navbar from "../../components/Navbar/Navbar";
+import { useDispatch, useSelector } from "react-redux";
+import { clearState, contactMessage } from "../../Features/contact/contactSlice";
+import { useForm } from "react-hook-form";
+import { toast, ToastContainer } from "react-toastify";
+// import 'react-toastify/dist/ReactToastify.css';
 
 const Contact = () => {
+  const dispatch = useDispatch();
+  const { loading, error, success } = useSelector(
+    (state) => state.contactMessage
+  );
+
+  const handleContact = (values) => {
+    dispatch(contactMessage(values));
+  };
+
+  useEffect(() => {
+    if (error) {
+      toast.error("Error Occured", {
+        position: "top-right",
+      });
+    }
+    if (success) {
+      toast.success("submitted", {
+        position: "top-right",
+      });
+      dispatch(clearState());
+    }
+  }, [dispatch, error, success]);
+
+  const { register, handleSubmit } = useForm({
+    mode: "onBlur",
+  });
+
   return (
     <>
       <Navbar />
       <div className="contact-page-outer">
         <div className="max-width contact-page-inner">
+              <ToastContainer />
           <div className="contact-page">
-            <form>
+            <form onSubmit={handleSubmit(handleContact)}>
               <h2>Contact Us</h2>
               <h1>Get In Touch</h1>
               <p>
@@ -22,18 +55,33 @@ const Contact = () => {
               <div className="contact-page-inputs">
                 <span>
                   <User />
-                  <input type="text" placeholder="Your Name" />
+                  <input
+                    type="text"
+                    placeholder="Your Name"
+                    required
+                    {...register("name", { required: true })}
+                  />
                 </span>
                 <span>
                   <Mail />
-                  <input type="mail" placeholder="Your Mail" />
+                  <input
+                    type="mail"
+                    placeholder="Your Mail"
+                    required
+                    {...register("email", { required: true })}
+                  />
                 </span>
                 <span>
                   <MessageSquare />
-                  <input type="text" placeholder="Your Message" />
+                  <input
+                    type="text"
+                    placeholder="Your Message"
+                    required
+                    {...register("message", { required: true })}
+                  />
                 </span>
               </div>
-              <button>Submit</button>
+              <button>{loading ? "Loading..." : "Submit"}</button>
             </form>
             <div className="contcat-page-left">
               <img src="/Images/contact.jpg" alt="" />

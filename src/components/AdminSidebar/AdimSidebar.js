@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import "./style.css";
+import React, { useState } from "react";
+// import "./style.css";
 import { MdOutlineDashboard } from "react-icons/md";
 import { GiRamProfile } from "react-icons/gi";
 import { MdNetworkPing } from "react-icons/md";
@@ -8,12 +8,11 @@ import { AiFillAlert } from "react-icons/ai";
 import { FaRegStar } from "react-icons/fa";
 import { CiLogout } from "react-icons/ci";
 import { Link, useNavigate } from "react-router-dom";
-import { MdCleanHands } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../Features/auth/LoginSlice";
 import {toast} from "react-toastify"
 
-function SideBar() {
+const AdimSidebar = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const [activeLink, setActiveLink] = useState("home");
@@ -30,7 +29,9 @@ function SideBar() {
     toast.success("Logged out successfully", {
       position: "top-center",
       });
-  }
+    }
+
+
   return (
     <div className="dash-sidebar">
       <div className="sidebar-inner">
@@ -44,7 +45,7 @@ function SideBar() {
 
         <ul className="dashboard-elements">
           <li className={activeLink === "home" ? "active" : ""}>
-            <Link to="dash-main" onClick={() => handleLinkClick("home")}>
+            <Link to="admin-main" onClick={() => handleLinkClick("home")}>
               <MdOutlineDashboard className="icons" />
               Dashboard
             </Link>
@@ -55,22 +56,22 @@ function SideBar() {
               Personal Profile
             </Link>
           </li>
-          <li className={activeLink === "myBids" ? "active" : ""}>
-            <Link to="mybids" onClick={() => handleLinkClick("myBids")}>
+          <li className={activeLink === "product" ? "active" : ""}>
+            <Link to="product-form" onClick={() => handleLinkClick("product")}>
               <MdNetworkPing className="icons" />
-              My Bids
+              Products
             </Link>
           </li>
-          <li>
-            <Link>
+          <li className={activeLink === "contact" ? "active" : ""}>
+            <Link to="contact-table" onClick={() => handleLinkClick("contact")}>
               <GiThrowingBall className="icons" />
-              Wining Bids
+              Contact
             </Link>
           </li>
-          <li>
-            <Link>
+          <li className={activeLink === "users" ? "active" : ""}>
+            <Link to="users-table" onClick={() => handleLinkClick("users")}>
               <AiFillAlert className="icons" />
-              My Alerts
+              Users
             </Link>
           </li>
           <li>
@@ -88,7 +89,7 @@ function SideBar() {
         </ul>
       </div>
     </div>
-  );
+  )
 }
 
-export default SideBar;
+export default AdimSidebar

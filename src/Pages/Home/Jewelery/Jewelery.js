@@ -55,7 +55,7 @@ const Jewelery = () => {
                       <h3>30 Bids</h3>
                     </div>
                   </div>
-                  <Link to="/">
+                  <Link to="/product">
                     Submit A Bid
                   </Link>
                 </div>

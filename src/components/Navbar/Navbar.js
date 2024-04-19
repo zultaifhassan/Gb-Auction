@@ -1,11 +1,10 @@
 import React, { useState,useEffect } from "react";
 import "./Navbar.css";
 import { Menu } from "react-feather";
-import { Link, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [showNavbar, setShowNavbar] = useState(false);
-  const location = useLocation(); 
  
   const toggleNavbar = () => {
     setShowNavbar(!showNavbar);
@@ -15,23 +14,23 @@ const Navbar = () => {
     <div className="top-navbar">
       <nav className="max-width">
         <div className="top-navbar-right">
-          <Link to="/">
+          <NavLink to="/">
             <img src="/Images/logo.png" alt="" />
-          </Link>
+          </NavLink>
           <div className="togggle-bar" onClick={toggleNavbar}>
             <Menu fontSize={50} />
           </div>
         </div>
         <div className={`top-navbar-center ${showNavbar && "active"}`}>
-          <Link to="/" className={({ isActive }) => (isActive ? 'active' : '')}>Home</Link>
-          <Link to="/auction">Auction</Link>
-          <Link to="/about">About Us</Link>
-          <Link to="/contact">Contact</Link>
+          <NavLink to="/" className={({ isActive }) => (isActive ? 'active1' : '')}>Home</NavLink>
+          <NavLink to="/auction" className={({ isActive }) => (isActive ? 'active1' : '')}>Auction</NavLink>
+          <NavLink to="/about" className={({ isActive }) => (isActive ? 'active1' : '')}>About Us</NavLink>
+          <NavLink to="/contact" className={({ isActive }) => (isActive ? 'active1' : '')}>Contact</NavLink>
         </div>
         <div className="top-navbar-left">
-          <Link to="/login">
+          <NavLink to="/login">
             <button>Login</button>
-          </Link>
+          </NavLink>
         </div>
       </nav>
     </div>
