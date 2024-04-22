@@ -1,32 +1,35 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProducts, deleteProduct } from "../../../Features/product/productSlice";
+import {
+  fetchProducts,
+  deleteProduct,
+} from "../../../Features/product/productSlice";
 import { AiTwotoneDelete } from "react-icons/ai";
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
+import "./producttable.css";
 
 const Product = () => {
   const { id } = useParams();
-    const dispatch = useDispatch();
-    const { products, loading, error } = useSelector((state) => state.products);
-  
-    
-    useEffect(() => {
-      dispatch(fetchProducts());
-    }, [dispatch]);
+  const dispatch = useDispatch();
+  const { products, loading, error } = useSelector((state) => state.products);
 
-    const handleDelete = () => {
-      dispatch(deleteProduct({id}));
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
+
+  const handleDelete = () => {
+    dispatch(deleteProduct({ id }));
   };
-  
-    if (!Array.isArray(products)) {
-      return <div className="max-width">No products available</div>;
-    }
-  
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>Error: {error}</div>;
+
+  if (!Array.isArray(products)) {
+    return <div className="max-width">No products available</div>;
+  }
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
   return (
-    <div className="current-table contact-table">
-      <h1>Contact Form Details</h1>
+    <div className="product-table">
+      <h1>Product List</h1>
       <table>
         <thead>
           <tr>
@@ -40,17 +43,21 @@ const Product = () => {
         <tbody>
           {products?.map((item) => (
             <tr>
-              <td><img src={item.image} /></td>
+              <td>
+                <img src={item.image} />
+              </td>
               <td>{item.title}</td>
               <td>${item.price}</td>
               <td>{item.description}</td>
-              <td><AiTwotoneDelete fontSize={25} onClick={handleDelete()}/></td>
+              <td>
+                <AiTwotoneDelete fontSize={25} onClick={handleDelete()} />
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
-  )
-}
+  );
+};
 
-export default Product
+export default Product;
