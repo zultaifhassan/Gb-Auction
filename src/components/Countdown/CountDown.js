@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./count.css";
 import { Link } from "react-router-dom";
 
-function CountDown({ targetDate }) {
+function CountDown({ targetDate,id }) {
   const calculateTimeLeft = () => {
     const difference = +new Date(targetDate) - +new Date();
     let timeLeft = {};
@@ -53,7 +53,7 @@ function CountDown({ targetDate }) {
               <span> {formatTime(timeLeft.seconds)}s</span>
             </div>
           )}
-          <Link to="/product" disabled={countdownFinished}>
+          <Link to={`/product/${id}`} disabled={countdownFinished}>
             {countdownFinished ? "Countdown Finished!" : "Submit A Bid"}
           </Link>
         </div>

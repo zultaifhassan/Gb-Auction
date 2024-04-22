@@ -57,7 +57,7 @@ const AdimSidebar = () => {
             </Link>
           </li>
           <li className={activeLink === "product" ? "active" : ""}>
-            <Link to="product-form" onClick={() => handleLinkClick("product")}>
+            <Link to="product-detail" onClick={() => handleLinkClick("product")}>
               <MdNetworkPing className="icons" />
               Products
             </Link>

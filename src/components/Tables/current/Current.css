@@ -32,3 +32,8 @@
     font-size: 16px;
     font-weight: 500;
 }
+
+.current-table table tbody tr td img {
+    height: 50px;
+    width: 50px;
+}

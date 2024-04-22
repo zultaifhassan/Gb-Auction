@@ -15,7 +15,7 @@ import Admin from "./Pages/Admindashboard/Admin";
 import ConatctTable from "./components/Tables/Contact/ConatctTable";
 import DashboardMain from "./Pages/Admindashboard/DashboardMain/DashboardMain";
 import UserTable from "./components/Tables/User/UserTable";
-import ProductForm from "./Pages/Admindashboard/ProductForm/ProductForm";
+import UserTabs from "./Pages/Dashboard/userTabs/UserTabs";
 
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/auction" element={<Auction />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/product" element={<Product />} />
+        <Route path="/product/:id" element={<Product />} />
         <Route path="/dashboard" element={<Dashlayout />}>
           <Route path="dash-main" element={<Dashboard/>} />
           <Route path="profile" element={<Profile />} />
@@ -37,7 +37,7 @@ function App() {
           <Route path="admin-main" element={<DashboardMain />} />
           <Route path="contact-table" element={<ConatctTable />} />
           <Route path="users-table" element={<UserTable />} />
-          <Route path="product-form" element={<ProductForm />} />
+          <Route path="product-detail" element={<UserTabs />} />
         </Route>
       </Routes>
     </div>

@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 import "./Product.css";
 import CountDown from "../../components/Countdown/CountDown";
+import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProductById } from "../../Features/product/productSlice";
+
 
 const Product = () => {
+  const { id } = useParams();
+  const dispatch = useDispatch();
+  const { product, getLoading, getError } = useSelector(
+    (state) => state.products
+  );
+
+  useEffect(() => {
+    dispatch(fetchProductById({ id }));
+  }, [dispatch, id]);
+
+  if (getLoading) return <div>Loading...</div>;
+  if (getError) return <div>Error: {getError}</div>;
+  if (!product) return <div>Product not found</div>;
+
   return (
     <div>
       <Navbar />
@@ -15,15 +33,17 @@ const Product = () => {
             <img src="/Images/jew1.jpg" alt="" />
           </div>
           <div className="productpage-title">
-            <h1>Diamond Ring</h1>
-              <p>A diamond ring symbolizes enduring love and commitment, adorned with a timeless elegance that captivates hearts. </p>
+            <h1>{product.title}</h1>
+            <p>{product.description}</p>
             <div className="price-detail">
               <h2>Current Price:</h2>
-              <span>$600</span>
+              <span>${product.price}</span>
             </div>
             <div className="ending-detail">
               <h2>Auction End In</h2>
-              <CountDown targetDate="2024-04-20T00:00:00" />
+              <div className="end-date-product">
+                <CountDown targetDate={product.date} />
+              </div>
             </div>
           </div>
         </div>

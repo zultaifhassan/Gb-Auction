@@ -120,16 +120,19 @@
 
 .product-boxes {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  flex-wrap: wrap;
+  gap: 30px;
 }
 .product-one-home {
   padding: 20px;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
-  width: 31.5%;
+  width: 31.7%;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  margin-top: 30px;
 }
 
 .image-icon-hammer {

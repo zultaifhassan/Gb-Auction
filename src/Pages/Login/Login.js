@@ -66,6 +66,7 @@ const Login = () => {
     <>
       <Navbar />
       <div className="login-page-outer">
+        <ToastContainer />
         <div class="max-width">
           <div className="login-page-inner">
             <div className="login-account">

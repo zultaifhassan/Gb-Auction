@@ -1,133 +1,85 @@
 import React, { useEffect, useState } from "react";
 import "./product.css";
 import { useDispatch, useSelector } from "react-redux";
-import { createProduct, productSlice } from "../../../Features/product/productSlice";
-import { useForm } from "react-hook-form"
-import Swal from "sweetalert2";
-
+import { createProduct } from "../../../Features/product/productSlice";
+import { toast, ToastContainer } from "react-toastify";
+import CountDown from "../../../components/Countdown/CountDown";
+import {useForm} from 'react-hook-form'
 const ProductForm = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-  const [category, setCategory] = useState(null);
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [showImage, setShowImage] = useState(null);
-  const [errorMessage, setErrorMessage] = useState(null);
-
-  const { success, loading, error } = useSelector(
-    (state) => state.products
-  );
-  const { user } = useSelector((state) => state.login);
-  const handleImageUpload = (event) => {
-    const file = event.target.files[0];
-    console.log(file);
-    // Check if the file is an image
-    if (file && file.type.startsWith("image/")) {
-      const reader = new FileReader();
-
-      reader.onloadend = () => {
-        const image = new Image();
-
-        image.onload = () => {
-          const { width, height } = image;
-          const minWidth = 100;
-          const minHeight = 100;
-          const maxWidth = 1500;
-          const maxHeight = 1500;
-          if (
-            width >= minWidth &&
-            height >= minHeight &&
-            width <= maxWidth &&
-            height <= maxHeight
-          ) {
-            setSelectedImage(file);
-            setShowImage(reader.result);
-            setErrorMessage("");
-          } else {
-            setErrorMessage(
-              "Image size is not within the allowed limits(100-701 x 100-445). Please choose an image with appropriate dimensions."
-            );
-            setSelectedImage(null);
-            setShowImage(null);
-          }
-        };
-
-        image.src = reader.result;
-      };
-
-      reader.readAsDataURL(file);
-    } else {
-      setErrorMessage("Please select an image");
-    }
-  };
-
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
+  const { loading, success } = useSelector((state) => state.products);
+  const { user } = useSelector((state) => state.login);
+  const [image,setImage] = useState(null)
+  const [targetDate, setTargetDate] = useState(""); 
+  const {register,handleSubmit} = useForm()
+  const handleProductSubmit = (values) => {
+    // e.preventDefault();
+    const formData = new FormData();
 
-  const handleCreateProduct = (values) => {
-    if (category) {
-      const apiData = new FormData();
-      apiData.append("name", values.name);
-      apiData.append("price", values.price);
-      apiData.append("description", values.description);
-
-      dispatch(createProduct({ token: user?.token, data: apiData }));
-      console.log("cliscked")
-    }
+    formData.append('title',values.name)
+    formData.append('price',values.price)
+    formData.append('description',values.description)
+    formData.append('image',image)
+    formData.append('category',values.category)
+    formData.append('date',values.date)
+    dispatch(createProduct({ token: user.token, data: formData }));
   };
 
   useEffect(() => {
     if (success) {
-      // dispatch(clearState());
-      // navigate("/seller/products");
-    }
-    if (error) {
-      Swal.fire({
-        position: "center",
-        icon: "error",
-        title: error,
-        showConfirmButton: true,
+      toast.success("Product Added Successfully !", {
+        position: "top-right",
       });
-      // dispatch(clearState());
     }
-  }, [error, success, dispatch]);
+  }, [success]);
+
+  if (!user?.token) {
+    return <p>Please log in to create a product.</p>;
+  }
 
   return (
     <div className="product-form-outer">
+      <ToastContainer />
       <h1>Product Details</h1>
-      <form onSubmit={handleSubmit(handleCreateProduct)}>
+      <form onSubmit={handleSubmit(handleProductSubmit)}>
         <div className="product-form-inner">
           <label>Product Name</label>
-          <input type="text" placeholder="Product Name" {...register("name", { required: true })} />
+          <input type="text" placeholder="Product Name" {...register('name')} />
         </div>
         <div className="price-category">
           <div className="product-form-inner">
             <label>Price</label>
-            <input type="number" placeholder="Price" {...register("price", { required: true })} />
+            <input type="number" placeholder="Price" {...register('price')}/>
           </div>
           <div className="product-form-inner">
             <label>Category</label>
-            <select>
-              <option value="" id="option" disabled>
-                Select Category
-              </option>
-              <option value="vehicles">Vehicles</option>
-              <option value="jewelery">Jewelery</option>
+            <select name="category" {...register('category')}>
+              <option disabledy>Select Category</option>
+              <option value="vehicle">Vehicle</option>
+              <option value="jewelry">Jewelry</option>
               <option value="real state">Real State</option>
             </select>
           </div>
         </div>
         <div className="product-form-inner">
           <label>Description</label>
-          <input type="text" placeholder="Description" {...register("description", { required: true })} />
+          <input type="text" placeholder="Description" {...register('description')} />
         </div>
-        <div className="product-form-inner">
-          <label>Picture</label>
-          <input type="file" />
+        <div className="price-category">
+          <div className="product-form-inner">
+            <label>Picture</label>
+            <input type="file" name="image" onChange={(e)=>{
+              setImage(e.target.files[0])
+            }}/>
+          </div>
+          <div className="product-form-inner">
+            <label>Select End Date</label>
+            <input type="date" placeholder="Select End Date" {...register('date')}/>
+          </div>
         </div>
-        <button type="submit">{loading? "Loading..." : "Submit"}</button>
+        <button type="submit" disabled={loading}>
+          {loading ? "Submitting..." : "Submit"}
+        </button>
       </form>
     </div>
   );

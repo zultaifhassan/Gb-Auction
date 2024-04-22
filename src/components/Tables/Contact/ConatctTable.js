@@ -7,7 +7,6 @@ import "./contact.css"
 const ConatctTable = () => {
   const dispatch = useDispatch();
   const { contacts } = useSelector((state) => state.contactMessage);
-  console.log(contacts);
 
   useEffect(() => {
     dispatch(getAllContact());
