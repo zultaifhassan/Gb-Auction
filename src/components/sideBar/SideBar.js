@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./style.css";
 import { MdOutlineDashboard } from "react-icons/md";
 import { GiRamProfile } from "react-icons/gi";
@@ -8,7 +8,6 @@ import { AiFillAlert } from "react-icons/ai";
 import { FaRegStar } from "react-icons/fa";
 import { CiLogout } from "react-icons/ci";
 import { Link, useNavigate } from "react-router-dom";
-import { MdCleanHands } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../Features/auth/LoginSlice";
 import {toast} from "react-toastify"
@@ -35,7 +34,7 @@ function SideBar() {
     <div className="dash-sidebar">
       <div className="sidebar-inner">
         <div className="image-and-name">
-          <img src="/images/user.jpg" alt="" />
+          <img src="/images/user.png" alt="" />
             <div className="image-and-name">
               <h1>{user.user.name}</h1>
               <p>{user.user.email}</p>
@@ -68,9 +67,9 @@ function SideBar() {
             </Link>
           </li>
           <li>
-            <Link>
+            <Link to="review">
               <AiFillAlert className="icons" />
-              My Alerts
+              Review
             </Link>
           </li>
           <li>

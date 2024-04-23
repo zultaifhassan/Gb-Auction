@@ -25,15 +25,19 @@ const Profile = () => {
       </div>
       <div className="personal-details-mail">
         <h2>Phone</h2>
-        <h2>+92 3495419344</h2>
+        <h2>{user.user.phone}</h2>
+      </div>
+      <div className="personal-details-mail">
+        <h2>Role</h2>
+        <h2>{user.user.role}</h2>
       </div>
       <div className="personal-details-mail">
         <h2>CNIC Number</h2>
-        <h2>7150199240457</h2>
+        <h2>{user.user.cnic}</h2>
       </div>
       <div className="personal-details-mail">
         <h2>Address</h2>
-        <h2>Amphary Danyore, Gilgit</h2>
+        <h2>{user.user.address}</h2>
       </div>
     </div>
   );

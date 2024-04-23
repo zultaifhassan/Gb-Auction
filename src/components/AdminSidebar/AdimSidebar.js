@@ -5,7 +5,6 @@ import { GiRamProfile } from "react-icons/gi";
 import { MdNetworkPing } from "react-icons/md";
 import { GiThrowingBall } from "react-icons/gi";
 import { AiFillAlert } from "react-icons/ai";
-import { FaRegStar } from "react-icons/fa";
 import { CiLogout } from "react-icons/ci";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -36,7 +35,7 @@ const AdimSidebar = () => {
     <div className="dash-sidebar">
       <div className="sidebar-inner">
         <div className="image-and-name">
-          <img src="/images/user.jpg" alt="" />
+          <img src="/images/user.png" alt="" />
             <div className="image-and-name">
               <h1>{user.user.name}</h1>
               <p>{user.user.email}</p>
@@ -51,7 +50,7 @@ const AdimSidebar = () => {
             </Link>
           </li>
           <li className={activeLink === "profile" ? "active" : ""}>
-            <Link to="profile" onClick={() => handleLinkClick("profile")}>
+            <Link to="admin-profile" onClick={() => handleLinkClick("profile")}>
               <GiRamProfile className="icons" />
               Personal Profile
             </Link>
@@ -69,17 +68,12 @@ const AdimSidebar = () => {
             </Link>
           </li>
           <li className={activeLink === "users" ? "active" : ""}>
-            <Link to="users-table" onClick={() => handleLinkClick("users")}>
+            <Link to="admin-tabs" onClick={() => handleLinkClick("users")}>
               <AiFillAlert className="icons" />
               Users
             </Link>
           </li>
-          <li>
-            <Link>
-              <FaRegStar className="icons" />
-              My Favorites
-            </Link>
-          </li>
+          
           <li onClick={handleLogout}>
             <button>
               <CiLogout className="log-icons" />

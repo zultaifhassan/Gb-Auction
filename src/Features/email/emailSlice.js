@@ -43,18 +43,18 @@ export const emailSlice = createSlice({
       state.error = action.payload;
     });
 
-    // builder.addCase(getAllContact.pending,(state)=>{
-    //     state.loading = true;
-    // });
-    // builder.addCase(getAllContact.fulfilled,(state,action)=>{
-    //     state.loading = false;
-    //     state.contacts = action.payload;
-    // });
-    // builder.addCase(getAllContact.rejected,(state,action)=>{
-    //     state.loading = false;
-    //     state.error = action.payload
+    builder.addCase(getAllMails.pending,(state)=>{
+        state.loading = true;
+    });
+    builder.addCase(getAllMails.fulfilled,(state,action)=>{
+        state.loading = false;
+        state.emails = action.payload;
+    });
+    builder.addCase(getAllMails.rejected,(state,action)=>{
+        state.loading = false;
+        state.error = action.payload
 
-    // })
+    })
   },
 });
 
@@ -75,6 +75,17 @@ export const createEmails = createAsyncThunk(
     }
   }
 );
+
+
+export const getAllMails = createAsyncThunk('getAllMails', async(apiData, {rejectWithValue}) => {
+  try {
+      const { data } = await axios.get("http://localhost:3036/api/v1/email", apiData);
+      return data;
+  } catch (error) {
+      return rejectWithValue('Error Occured During Fetching Contact')
+  }
+})
+
 
 
 export const getTotalEmails = createAsyncThunk(

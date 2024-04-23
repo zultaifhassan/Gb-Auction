@@ -12,6 +12,7 @@ import { IoMailOutline } from "react-icons/io5";
 import { HiOutlineIdentification } from "react-icons/hi2";
 import { FiMapPin } from "react-icons/fi";
 import { FiLock } from "react-icons/fi";
+import { CiPhone } from "react-icons/ci";
 
 
 const Signup = () => {
@@ -72,8 +73,17 @@ const Signup = () => {
                     <input
                       type="email"
                       placeholder="Enter your Mail"
-                      required mi
+                      required
                       {...register("email", { required: true })}
+                    />
+                  </span>
+                  <span>
+                    <CiPhone fontSize={30} />
+                    <input
+                      type="number"
+                      placeholder="Enter your CNIC"
+                      required
+                      {...register("phone", { required: true })}
                     />
                   </span>
                   <span>

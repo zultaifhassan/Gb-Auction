@@ -6,6 +6,7 @@ const initialState = {
     error: null,
     success: false,
     contacts: null,
+    totalC: 0,
 }
 
 
@@ -44,6 +45,19 @@ export const contactSlice = createSlice({
             state.error = action.payload
             
         })
+
+
+        builder.addCase(getTotalContacts.pending, (state) => {
+            state.loading = true;
+          });
+          builder.addCase(getTotalContacts.fulfilled, (state, action) => {
+            state.loading = false;
+            state.totalC = action.payload;
+          });
+          builder.addCase(getTotalContacts.rejected, (state, action) => {
+            state.loading = false;
+            state.error = action.payload;
+          });
     }
 });
 
@@ -65,6 +79,21 @@ export const getAllContact = createAsyncThunk('getAllContact', async(apiData, {r
         return rejectWithValue('Error Occured During Fetching Contact')
     }
 })
+
+
+
+export const getTotalContacts = createAsyncThunk(
+    "emails/getTotalContacts",
+    async () => {
+      try {
+        const response = await axios.get("http://localhost:3036/api/v1/contact/count");
+        return response.data.total; // Assuming the API returns the total count in a 'total' field
+      } catch (error) {
+        console.log(error);
+        throw error;
+      }
+    }
+  );
 
 
 export const { clearState } = contactSlice.actions;

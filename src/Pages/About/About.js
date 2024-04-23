@@ -38,7 +38,7 @@ const About = () => {
         </div>
         <div className="teams-cards">
           <div className="team-card-one">
-            <img src="/Images/user.jpg" alt="" />
+            <img src="/Images/user.png" alt="" />
             <div className="team-member-detail">
               <h3>Zultaif Hassan</h3>
               <h4>CEO & Founder</h4>
@@ -46,7 +46,7 @@ const About = () => {
             </div>
           </div>
           <div className="team-card-one">
-            <img src="/Images/user.jpg" alt="" />
+            <img src="/Images/user.png" alt="" />
             <div className="team-member-detail">
               <h3>Zultaif Hassan</h3>
               <h4>CEO & Founder</h4>
@@ -54,7 +54,7 @@ const About = () => {
             </div>
           </div>
           <div className="team-card-one">
-            <img src="/Images/user.jpg" alt="" />
+            <img src="/Images/user.png" alt="" />
             <div className="team-member-detail">
               <h3>Zultaif Hassan</h3>
               <h4>CEO & Founder</h4>

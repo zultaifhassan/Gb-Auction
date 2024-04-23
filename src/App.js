@@ -14,10 +14,11 @@ import Product from "./Pages/Productpage/Product";
 import Admin from "./Pages/Admindashboard/Admin";
 import ConatctTable from "./components/Tables/Contact/ConatctTable";
 import DashboardMain from "./Pages/Admindashboard/DashboardMain/DashboardMain";
-import UserTable from "./components/Tables/User/UserTable";
 import UserTabs from "./Pages/Dashboard/userTabs/UserTabs";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import AdminTabs from "./Pages/Admindashboard/AdminTabs/AdminTabs";
+import ReviewForm from "./Pages/Dashboard/ReviewForm/ReviewForm";
 function App() {
   return (
     <div>
@@ -33,12 +34,14 @@ function App() {
           <Route path="dash-main" element={<Dashboard/>} />
           <Route path="profile" element={<Profile />} />
           <Route path="mybids" element={<Mybids />} />
+          <Route path="review" element={<ReviewForm />} />
         </Route>
         <Route path="/admin" element={<Admin />}>
           <Route path="admin-main" element={<DashboardMain />} />
           <Route path="contact-table" element={<ConatctTable />} />
-          <Route path="users-table" element={<UserTable />} />
+          <Route path="admin-tabs" element={<AdminTabs />} />
           <Route path="product-detail" element={<UserTabs />} />
+          <Route path="admin-profile" element={<Profile />} />
         </Route>
       </Routes>
       <ToastContainer/>

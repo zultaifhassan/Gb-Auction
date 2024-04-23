@@ -34,7 +34,7 @@ const ProductForm = () => {
       reset(undefined);
       dispatch(clearState());
     }
-  }, [success, reset]);
+  }, [success, reset, dispatch]);
 
   if (!user?.token) {
     return <p>Please log in to create a product.</p>;
@@ -66,7 +66,7 @@ const ProductForm = () => {
         </div>
         <div className="product-form-inner">
           <label>Description</label>
-          <input type="text" placeholder="Description" {...register('description')} />
+          <textarea type="text" placeholder="Description" {...register('description')} />
         </div>
         <div className="price-category">
           <div className="product-form-inner">

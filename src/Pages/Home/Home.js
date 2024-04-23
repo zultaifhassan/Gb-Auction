@@ -7,6 +7,7 @@ import Vehicle from "./Vehicle/Vehicle";
 import Jewelery from "./Jewelery/Jewelery";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
+
 const Home = () => {
   const [loading, setLoading] = useState(true);
 

@@ -13,25 +13,17 @@ const UserTable = () => {
   }, [dispatch]);
 
 
-  const shortenPassword = (password) => {
-    const maxLength = 10 // Define the maximum length you want to display
-    if (password.length <= maxLength) {
-      return password;
-    } else {
-      return password.slice(0, maxLength) + "...";
-    }
-  };
-
 
   return (
-    <div className="current-table contact-table">
+    <div className="current-table product-table">
       <h1>All Users Details</h1>
       <table>
         <thead>
           <tr>
             <th>Name</th>
             <th>Email</th>
-            <th>Password</th>
+            <th>CNIC</th>
+            <th>PhONE</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -40,7 +32,8 @@ const UserTable = () => {
             <tr>
               <td>{user.name}</td>
               <td>{user.email}</td>
-              <td>{shortenPassword(user.password)}</td>
+              <td>{user.cnic}</td>
+              <td>{user.phone}</td>
               <td><AiTwotoneDelete fontSize={25} /></td>
             </tr>
           ))}

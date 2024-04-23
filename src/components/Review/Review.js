@@ -50,7 +50,7 @@ const Review = () => {
           }}>
           <SwiperSlide>
             <div className="slider-inner-content">
-              <img src="/Images/user.jpg" alt="" />
+              <img src="/Images/user.png" alt="" />
               <p>
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry. Lorem Ipsum has been the industry's standard dummy
@@ -70,7 +70,7 @@ const Review = () => {
           </SwiperSlide>
           <SwiperSlide>
             <div className="slider-inner-content">
-              <img src="/Images/user.jpg" alt="" />
+              <img src="/Images/user.png" alt="" />
               <p>
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry. Lorem Ipsum has been the industry's standard dummy
@@ -90,7 +90,7 @@ const Review = () => {
           </SwiperSlide>
           <SwiperSlide>
             <div className="slider-inner-content">
-              <img src="/Images/user.jpg" alt="" />
+              <img src="/Images/user.png" alt="" />
               <p>
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry. Lorem Ipsum has been the industry's standard dummy
@@ -110,7 +110,7 @@ const Review = () => {
           </SwiperSlide>
           <SwiperSlide>
             <div className="slider-inner-content">
-              <img src="/Images/user.jpg" alt="" />
+              <img src="/Images/user.png" alt="" />
               <p>
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry. Lorem Ipsum has been the industry's standard dummy
@@ -130,7 +130,7 @@ const Review = () => {
           </SwiperSlide>
           <SwiperSlide>
             <div className="slider-inner-content">
-              <img src="/Images/user.jpg" alt="" />
+              <img src="/Images/user.png" alt="" />
               <p>
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry. Lorem Ipsum has been the industry's standard dummy
