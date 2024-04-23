@@ -38,7 +38,7 @@ const About = () => {
         </div>
         <div className="teams-cards">
           <div className="team-card-one">
-            <img src="/Images/user.png" alt="" />
+            <img src="/Images/z3.png" alt="" />
             <div className="team-member-detail">
               <h3>Zultaif Hassan</h3>
               <h4>CEO & Founder</h4>
@@ -46,19 +46,19 @@ const About = () => {
             </div>
           </div>
           <div className="team-card-one">
-            <img src="/Images/user.png" alt="" />
+            <img src="/Images/sdsds.jpg" alt="" />
             <div className="team-member-detail">
               <h3>Zultaif Hassan</h3>
-              <h4>CEO & Founder</h4>
+              <h4>CTO & Founder</h4>
               <p>Zultaifhassan110@gmail.com</p>
             </div>
           </div>
           <div className="team-card-one">
-            <img src="/Images/user.png" alt="" />
+            <img src="/Images/ansar.jpeg" alt="" />
             <div className="team-member-detail">
-              <h3>Zultaif Hassan</h3>
-              <h4>CEO & Founder</h4>
-              <p>Zultaifhassan110@gmail.com</p>
+              <h3>Ansar Ali</h3>
+              <h4>COO</h4>
+              <p>ansaralyh@gmail.com</p>
             </div>
           </div>
         </div>

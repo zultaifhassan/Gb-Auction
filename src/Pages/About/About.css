@@ -66,6 +66,7 @@
     width: 30%;
     box-shadow: 0px 6px 18px 0px rgba(16, 5, 54, 0.17);
     border-radius: 10px;
+    padding: 30px 40px;
 }
 
 .team-card-one img {
@@ -79,7 +80,7 @@
 }
 
 .team-member-detail {
-    padding: 20px;
+    padding: 20px 0px;
     display: flex;
     flex-direction: column;
     gap: 10px;

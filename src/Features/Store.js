@@ -8,6 +8,7 @@ import { usersSlice } from "./user/userSlice";
 import { productSlice } from "./product/productSlice";
 import { emailSlice } from "./email/emailSlice";
 import { reviewSlice } from "./review/reviewSlice";
+import { bidSlice } from "./bidding/biddingSlice";
 
 const persistConfig = {
   key: "root",
@@ -22,7 +23,8 @@ export const store = configureStore({
       fetchUsers: usersSlice.reducer,
       products: productSlice.reducer,
       emails: emailSlice.reducer,  
-      reviews: reviewSlice.reducer
+      reviews: reviewSlice.reducer, 
+      bids: bidSlice.reducer,
     },
 })
 
