@@ -34,18 +34,18 @@ export const reviewSlice = createSlice({
         })
 
 
-        // builder.addCase(getAllContact.pending,(state)=>{
-        //     state.loading = true;
-        // });
-        // builder.addCase(getAllContact.fulfilled,(state,action)=>{
-        //     state.loading = false;
-        //     state.contacts = action.payload;
-        // });
-        // builder.addCase(getAllContact.rejected,(state,action)=>{
-        //     state.loading = false;
-        //     state.error = action.payload
+        builder.addCase(fetchReviews.pending,(state)=>{
+            state.loading = true;
+        });
+        builder.addCase(fetchReviews.fulfilled,(state,action)=>{
+            state.loading = false;
+            state.reviews = action.payload;
+        });
+        builder.addCase(fetchReviews.rejected,(state,action)=>{
+            state.loading = false;
+            state.error = action.payload
             
-        // })
+        })
 
 
         builder.addCase(getTotalReviews.pending, (state) => {
@@ -71,6 +71,20 @@ export const createReview = createAsyncThunk('createReview', async(apiData, {rej
         return rejectWithValue('Error Occured posting review')
     }
 });
+
+
+export const fetchReviews = createAsyncThunk(
+  "reviews/fetchReviews",
+  async () => {
+    try {
+      const response = await axios.get("http://localhost:3036/api/v1/review");
+      return response.data.result;
+    } catch (error) {
+      console.error("Error fetching products:", error);
+      throw error;
+    }
+  }
+);
 
 
 export const getTotalReviews = createAsyncThunk(
