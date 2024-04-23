@@ -32,7 +32,7 @@ const Product = () => {
     }
     dispatch(fetchProductById({ id }));
     // dispatch(createBids());
-  }, [dispatch, id]);
+  }, [dispatch, id, success, error]);
   const {register,handleSubmit} = useForm()
 
   if (getLoading) return <div>Loading...</div>;
