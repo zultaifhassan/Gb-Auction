@@ -6,6 +6,7 @@ import { authSlice } from "./auth/LoginSlice";
 import { contactSlice } from "./contact/contactSlice";
 import { usersSlice } from "./user/userSlice";
 import { productSlice } from "./product/productSlice";
+import { emailSlice } from "./email/emailSlice";
 
 const persistConfig = {
   key: "root",
@@ -18,7 +19,8 @@ export const store = configureStore({
       signUp: signUpSlice.reducer,
       contactMessage: contactSlice.reducer,
       fetchUsers: usersSlice.reducer,
-      products: productSlice.reducer,  
+      products: productSlice.reducer,
+      emails: emailSlice.reducer,  
     },
 })
 

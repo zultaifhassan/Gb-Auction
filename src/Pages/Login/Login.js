@@ -100,7 +100,7 @@ const Login = () => {
               </form>
               <div className="login-left-side">
                 <div className="login-left-text">
-                  <h1>ALREADY HAVE AN ACCOUNT?</h1>
+                  <h1>IF NEW CREATE <br/> ACCOUNT?</h1>
                   <Link to="/signup">
                   <button>Sign Up</button>
                   </Link>

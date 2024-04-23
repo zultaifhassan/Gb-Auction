@@ -3,6 +3,8 @@ import "./Dashboard.css";
 import Current from "../../components/Tables/current/Current";
 import Pending from "../../components/Tables/pending/Pending";
 import { useSelector } from "react-redux"
+import { Link } from "react-router-dom";
+import { IoIosArrowRoundBack } from "react-icons/io";
 
 function Dashboard() {
   const [activeTab, setActiveTab] = useState("tab1"); // Initial active tab state
@@ -14,6 +16,7 @@ function Dashboard() {
   return (
     <div>
         <div className="user-dash-welcome">
+          <Link to="/"><IoIosArrowRoundBack fontSize={30} />Back To Home</Link>
             <h2>Wellcome <span>{user.user.name}</span> to User Dashboard</h2>
         </div>
       <div className="main-page-dash">

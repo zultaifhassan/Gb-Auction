@@ -1,28 +1,27 @@
-.loader-page {
+.loader2-page {
     display: flex;
     width: 100%;
     align-items: center;
     justify-content: center;
-    height: 100vh;
     background: rgba(70, 70, 230, 0.59);
 }
-.loader {
-    width: 100px;
-    height: 100px;
+.loader2 {
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     position: relative;
     animation: rotate 1s linear infinite;
   }
-  .loader::before , .loader::after {
+  .loader2::before , .loader2::after {
     content: "";
     box-sizing: border-box;
     position: absolute;
     inset: 0px;
     border-radius: 50%;
-    border: 5px solid #FFF;
+    border: 3px solid #FFF;
     animation: prixClipFix 2s linear infinite ;
   }
-  .loader::after{
+  .loader2::after{
     border-color: rgba(0, 147, 255, 1);
     animation: prixClipFix 2s linear infinite , rotate 0.5s linear infinite reverse;
     inset: 6px;

@@ -2,24 +2,33 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchProducts,
-  deleteProduct,
+  deleteProduct, clearState
 } from "../../../Features/product/productSlice";
 import { AiTwotoneDelete } from "react-icons/ai";
-import { useParams } from "react-router-dom";
+import { toast} from "react-toastify"
 import "./producttable.css";
 
+
 const Product = () => {
-  const { id } = useParams();
   const dispatch = useDispatch();
-  const { products, loading, error } = useSelector((state) => state.products);
+  const { products, loading, error, delSuccess, delError } = useSelector((state) => state.products);
 
   useEffect(() => {
     dispatch(fetchProducts());
-  }, [dispatch]);
+    if(delSuccess) {
+      console.log('here')
+      toast.success("Product Deleted Successfully !", {
+        position: "top-right",
+      });
+      dispatch(clearState());
+    }
+    if(delError) {
+      toast.error(delError, {
+        position: "top-right",
+      });
+    }
+  }, [dispatch, delSuccess, delError]);
 
-  const handleDelete = () => {
-    dispatch(deleteProduct({ id }));
-  };
 
   if (!Array.isArray(products)) {
     return <div className="max-width">No products available</div>;
@@ -50,7 +59,7 @@ const Product = () => {
               <td>${item.price}</td>
               <td>{item.description}</td>
               <td>
-                <AiTwotoneDelete fontSize={25} onClick={handleDelete()} />
+                <AiTwotoneDelete fontSize={25} onClick={()=> dispatch(deleteProduct({ id :item._id}))} />
               </td>
             </tr>
           ))}

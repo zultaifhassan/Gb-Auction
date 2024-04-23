@@ -13,6 +13,7 @@ const initialState = {
   delLoading: false,
   delError: null,
   delSuccess: false,
+  totalP: 0,
 };
 
 export const productSlice = createSlice({
@@ -22,6 +23,8 @@ export const productSlice = createSlice({
     clearState: (state) => {
       state.error = null;
       state.success = false;
+      state.delSuccess = false;
+      state.delError = false;
     },
   },
   extraReducers: (builder) => {
@@ -49,7 +52,6 @@ export const productSlice = createSlice({
       state.error = action.payload;
     });
 
-
     builder.addCase(fetchProductById.pending, (state) => {
       state.getLoading = true;
     });
@@ -57,24 +59,37 @@ export const productSlice = createSlice({
       state.getLoading = false;
       state.product = action.payload;
       state.getSuccess = true;
-
     });
     builder.addCase(fetchProductById.rejected, (state, action) => {
       state.getLoading = false;
       state.getError = action.error.message;
     });
 
-    builder.addCase(deleteProduct.pending, (state, action) => {
+    builder.addCase(deleteProduct.pending, (state) => {
       state.delLoading = true;
-    })
+    });
     builder.addCase(deleteProduct.fulfilled, (state, action) => {
       state.delLoading = false;
       state.delSuccess = true;
-    })
+      // state.products = state.products = state.products.filter(product => product.id !== action.payload.id)
+    });
     builder.addCase(deleteProduct.rejected, (state, action) => {
       state.delLoading = false;
-      state.delError = action.error.message;
-    })
+      state.delError = action.payload;
+    });
+
+
+    builder.addCase(getTotalProducts.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(getTotalProducts.fulfilled, (state, action) => {
+      state.loading = false;
+      state.totalP = action.payload;
+    });
+    builder.addCase(getTotalProducts.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    });
   },
 });
 
@@ -122,20 +137,20 @@ export const fetchProducts = createAsyncThunk(
 
 export default productSlice.reducer;
 
-
 // fetch single product
 
 export const fetchProductById = createAsyncThunk(
-  'product/fetchProductById',
+  "product/fetchProductById",
   async (apiData, { rejectWithValue }) => {
     try {
       if (!apiData?.id) {
-        return rejectWithValue("please providde id");
+        return rejectWithValue("please provide id");
       }
-      const response = await axios.get(`http://localhost:3036/api/v1/product/${apiData.id}`);
+      const response = await axios.get(
+        `http://localhost:3036/api/v1/product/${apiData.id}`
+      );
 
       return response.data.result; // Assuming the product data is in the 'result' property
-
     } catch (error) {
       return rejectWithValue(error.response.data);
     }
@@ -147,11 +162,35 @@ export const fetchProductById = createAsyncThunk(
 export const deleteProduct = createAsyncThunk(
   "products/deleteProduct",
   async (apiData, { rejectWithValue }) => {
-      try {
-          const response = await axios.delete(`http://localhost:3036/api/product/${apiData.id}`);
-          return response.data.result;
-      } catch (error) {
-          return rejectWithValue(error.response.data.message);
+    console.log(apiData)
+    try {
+      if (!apiData?.id) {
+        return rejectWithValue("please provide id");
       }
+      const response = await axios.delete(
+        `http://localhost:3036/api/v1/product/${apiData.id}`
+      );
+      return response.data.result;
+    } catch (error) {
+      console.log(error)
+      return rejectWithValue(error.response.data.message);
+    }
   }
 );
+
+
+export const getTotalProducts = createAsyncThunk(
+  "emails/getTotatProducts",
+  async () => {
+    try {
+      const response = await axios.get("http://localhost:3036/api/v1/product/count");
+      return response.data.total; // Assuming the API returns the total count in a 'total' field
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  }
+);
+
+
+export const { clearState } = productSlice.actions;

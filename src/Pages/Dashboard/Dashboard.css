@@ -4,6 +4,16 @@
     background-color: #fff;
     border-radius: 20px;
     margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.user-dash-welcome a {
+    color: #000;
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }
 
 .user-dash-welcome span {
@@ -24,8 +34,10 @@
 
 .main-page-dash-boxes {
     display: flex;
-    justify-content: space-between;
     padding: 40px;
+    background-color: #fff;
+    flex-wrap: wrap;
+    gap: 40px;
 }
 
 .main-page-box1 {

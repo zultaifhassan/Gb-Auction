@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
 import "./product.css";
 import { useDispatch, useSelector } from "react-redux";
-import { createProduct } from "../../../Features/product/productSlice";
+import { createProduct, clearState } from "../../../Features/product/productSlice";
 import { toast, ToastContainer } from "react-toastify";
-import CountDown from "../../../components/Countdown/CountDown";
 import {useForm} from 'react-hook-form'
 const ProductForm = () => {
   const dispatch = useDispatch();
   const { loading, success } = useSelector((state) => state.products);
   const { user } = useSelector((state) => state.login);
   const [image,setImage] = useState(null)
-  const [targetDate, setTargetDate] = useState(""); 
-  const {register,handleSubmit} = useForm()
+
+
+
+  const {register,handleSubmit, reset} = useForm()
   const handleProductSubmit = (values) => {
     // e.preventDefault();
     const formData = new FormData();
@@ -30,8 +31,10 @@ const ProductForm = () => {
       toast.success("Product Added Successfully !", {
         position: "top-right",
       });
+      reset(undefined);
+      dispatch(clearState());
     }
-  }, [success]);
+  }, [success, reset]);
 
   if (!user?.token) {
     return <p>Please log in to create a product.</p>;

@@ -16,7 +16,8 @@ import ConatctTable from "./components/Tables/Contact/ConatctTable";
 import DashboardMain from "./Pages/Admindashboard/DashboardMain/DashboardMain";
 import UserTable from "./components/Tables/User/UserTable";
 import UserTabs from "./Pages/Dashboard/userTabs/UserTabs";
-
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
     <div>
@@ -40,6 +41,7 @@ function App() {
           <Route path="product-detail" element={<UserTabs />} />
         </Route>
       </Routes>
+      <ToastContainer/>
     </div>
   );
 }
