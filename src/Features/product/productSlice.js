@@ -37,7 +37,7 @@ export const productSlice = createSlice({
     });
     builder.addCase(createProduct.rejected, (state, action) => {
       state.loading = false;
-      state.error = action.payload.data.result;
+      state.error = action.payload;
     });
 
     builder.addCase(fetchProducts.pending, (state) => {

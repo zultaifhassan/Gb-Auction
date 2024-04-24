@@ -6,11 +6,16 @@ import { getAllUsers } from "../../../Features/user/userSlice";
 const UserTable = () => {
     const dispatch = useDispatch();
   const { users } = useSelector((state) => state.fetchUsers);
-  console.log(users);
+
 
   useEffect(() => {
     dispatch(getAllUsers());
   }, [dispatch]);
+
+
+  if (!Array.isArray(users)) {
+    return <div className="max-width">No Users available</div>;
+  }
 
 
 

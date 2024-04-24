@@ -143,7 +143,17 @@
   padding: 0px 50px;
   border-radius: 50px;
   font-size: 20px;
-  border: 1px solid gray;
+  border: 1px solid rgba(1, 147, 254, 1);
   cursor: pointer;
   font-weight: 500;
+  background: rgba(1, 147, 254, 1) 38%;
+  color: #fff;
+  font-family: Montserrat;
+  outline: none;
+}
+
+.bidding-form form button:hover {
+  border: 1px solid rgba(1, 147, 254, 1);
+  color: rgba(1, 147, 254, 1);
+  background: transparent;
 }

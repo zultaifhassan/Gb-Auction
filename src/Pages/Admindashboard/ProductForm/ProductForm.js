@@ -47,37 +47,37 @@ const ProductForm = () => {
       <form onSubmit={handleSubmit(handleProductSubmit)}>
         <div className="product-form-inner">
           <label>Product Name</label>
-          <input type="text" placeholder="Product Name" {...register('name')} />
+          <input type="text" placeholder="Product Name" required {...register('name')} />
         </div>
         <div className="price-category">
           <div className="product-form-inner">
             <label>Price</label>
-            <input type="number" placeholder="Price" {...register('price')}/>
+            <input type="number" placeholder="Price" required {...register('price')}/>
           </div>
           <div className="product-form-inner">
             <label>Category</label>
-            <select name="category" {...register('category')}>
+            <select name="category" required {...register('category')}>
               <option disabledy>Select Category</option>
-              <option value="vehicle">Vehicle</option>
-              <option value="jewelry">Jewelry</option>
-              <option value="real state">Real State</option>
+              <option value="Vehicles">Vehicle</option>
+              <option value="Jewelery">Jewelry</option>
+              <option value="Real Estate">Real Estate</option>
             </select>
           </div>
         </div>
         <div className="product-form-inner">
           <label>Description</label>
-          <textarea type="text" placeholder="Description" {...register('description')} />
+          <textarea type="text" placeholder="Description" required {...register('description')} />
         </div>
         <div className="price-category">
           <div className="product-form-inner">
             <label>Picture</label>
-            <input type="file" name="image" onChange={(e)=>{
+            <input type="file" name="image" required onChange={(e)=>{
               setImage(e.target.files[0])
             }}/>
           </div>
           <div className="product-form-inner">
             <label>Select End Date</label>
-            <input type="date" placeholder="Select End Date" {...register('date')}/>
+            <input type="date" placeholder="Select End Date" required {...register('date')}/>
           </div>
         </div>
         <button type="submit" disabled={loading}>

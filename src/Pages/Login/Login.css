@@ -65,13 +65,7 @@
   margin-top: 5px;
   border-radius: 10px;
   border: 1px solid rgba(0, 147, 255, 1);
-  background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(9, 90, 121, 1) 0%,
-    rgba(0, 147, 255, 1) 37%,
-    rgba(1, 147, 254, 1) 38%
-  );
+  background: rgba(1, 147, 254, 1);
   color: #fff;
   font-size: 17px;
   font-weight: 500;
@@ -111,6 +105,11 @@
   padding: 0px 40px;
   justify-content: center;
   
+}
+
+.login-left-text  img {
+  height: 200px;
+  align-items: self-start;
 }
 
 .login-left-side button {

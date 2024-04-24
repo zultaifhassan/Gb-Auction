@@ -7,8 +7,8 @@ import Footer from "../../components/Footer/Footer";
 import { clearState, login } from "../../Features/auth/LoginSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -100,9 +100,12 @@ const Login = () => {
               </form>
               <div className="login-left-side">
                 <div className="login-left-text">
-                  <h1>IF NEW CREATE <br/> ACCOUNT?</h1>
+                  <img src="/Images/logo-02.svg" />
+                  <h1>
+                    IF NEW CREATE <br /> ACCOUNT?
+                  </h1>
                   <Link to="/signup">
-                  <button>Sign Up</button>
+                    <button>Sign Up</button>
                   </Link>
                 </div>
               </div>

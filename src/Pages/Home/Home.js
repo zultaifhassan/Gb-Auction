@@ -4,7 +4,7 @@ import Review from "../../components/Review/Review";
 import Category from "../../components/CategoriesSlider/Category";
 import Loader from "../../components/Loader/Loader";
 import Vehicle from "./Vehicle/Vehicle";
-import Jewelery from "./Jewelery/Jewelery";
+// import Jewelery from "./Jewelery/Jewelery";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 
@@ -41,7 +41,7 @@ const Home = () => {
           </div>
           <Category />
           <Vehicle />
-          <Jewelery />
+          {/* <Jewelery /> */}
           <Review />
           <Footer />
         </div>

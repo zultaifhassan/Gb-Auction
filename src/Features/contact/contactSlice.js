@@ -7,6 +7,9 @@ const initialState = {
     success: false,
     contacts: null,
     totalC: 0,
+    delLoading: false,
+    delError: null,
+    delSuccess: false
 }
 
 
@@ -58,6 +61,20 @@ export const contactSlice = createSlice({
             state.loading = false;
             state.error = action.payload;
           });
+
+
+          builder.addCase(deleteContact.pending, (state) => {
+            state.delLoading = true;
+          });
+          builder.addCase(deleteContact.fulfilled, (state, action) => {
+            state.delLoading = false;
+            state.delSuccess = true;
+            // state.products = state.products = state.products.filter(product => product.id !== action.payload.id)
+          });
+          builder.addCase(deleteContact.rejected, (state, action) => {
+            state.delLoading = false;
+            state.delError = action.payload;
+          });
     }
 });
 
@@ -80,6 +97,27 @@ export const getAllContact = createAsyncThunk('getAllContact', async(apiData, {r
     }
 })
 
+
+
+
+export const deleteContact = createAsyncThunk(
+    "contactMessage/deleteContact",
+    async (apiData, { rejectWithValue }) => {
+      console.log(apiData)
+      try {
+        if (!apiData?.id) {
+          return rejectWithValue("please provide id");
+        }
+        const response = await axios.delete(
+          `http://localhost:3036/api/v1/contact/${apiData.id}`
+        );
+        return response.data.result;
+      } catch (error) {
+        console.log(error)
+        return rejectWithValue(error.response.data.message);
+      }
+    }
+  );
 
 
 export const getTotalContacts = createAsyncThunk(

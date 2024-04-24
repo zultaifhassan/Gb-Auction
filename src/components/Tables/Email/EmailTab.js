@@ -4,12 +4,16 @@ import { getAllMails } from "../../../Features/email/emailSlice";
 
 const EmailTab = () => {
     const dispatch = useDispatch();
-  const { emails } = useSelector((state) => state.emails);
-  console.log(emails);
+  const { emails } = useSelector((state) => state.emails);;
 
   useEffect(() => {
     dispatch(getAllMails());
   }, [dispatch]);
+
+  if (!Array.isArray(emails)) {
+    return <div className="max-width">No emails available</div>;
+  }
+
 
   return (
     <div className="current-table product-table">

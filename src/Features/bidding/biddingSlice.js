@@ -12,17 +12,10 @@ export const bidSlice = createSlice({
     name: "bids",
     initialState,
     reducers: {
-        bid: (state) => {
-            state.loading = true;
-        },
-        bidSuccess: (state, action) => {
-            state.loading = false;
-            state.success = action.payload;
-        },
-        bidError: (state, action) => {
-            state.loading = false;
-            state.error = action.payload;
-        }
+      clearState: (state) => {
+        state.error = null;
+        state.success = false;
+      },
     },
 
     extraReducers: (builder) => {
@@ -50,13 +43,13 @@ export const createBids = createAsyncThunk(
           "http://localhost:3036/api/v1/bid",
           apiData.data,{
             headers:{
-                Authorization: "Bearer " +apiData.token
+                Authorization: "Bearer " + apiData.token
             }
           }
         );
         return data;
       } catch (error) {
-        return rejectWithValue("error occurs");
+        return rejectWithValue(error);
       }
     }
   );

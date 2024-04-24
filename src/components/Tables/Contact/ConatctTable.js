@@ -1,16 +1,35 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllContact } from "../../../Features/contact/contactSlice";
+import { getAllContact, clearState, deleteContact } from "../../../Features/contact/contactSlice";
 import { AiTwotoneDelete } from "react-icons/ai";
 import "./contact.css"
+import { toast } from "react-toastify";
 
 const ConatctTable = () => {
   const dispatch = useDispatch();
-  const { contacts } = useSelector((state) => state.contactMessage);
+  const { contacts, delError, delSuccess } = useSelector((state) => state.contactMessage);
 
   useEffect(() => {
     dispatch(getAllContact());
-  }, [dispatch]);
+    if(delSuccess) {
+      toast.success("Contact Deleted Successfully !", {
+        position: "top-right",
+      });
+      dispatch(clearState());
+    }
+    if(delError) {
+      toast.error(delError, {
+        position: "top-right",
+      });
+    }
+  }, [dispatch, delSuccess, delError]);
+
+  if (!Array.isArray(contacts)) {
+    return <div className="max-width">No contacts available</div>;
+  }
+
+  // if (loading) return <div>Loading...</div>;
+  // if (error) return <div>Error: {error}</div>;
 
   return (
     <div className="current-table contact-table">
@@ -30,7 +49,7 @@ const ConatctTable = () => {
               <td>{user.name}</td>
               <td>{user.email}</td>
               <td>{user.message}</td>
-              <td><AiTwotoneDelete fontSize={25} /></td>
+              <td><AiTwotoneDelete fontSize={25} onClick={()=> dispatch(deleteContact({ id :user._id}))} /></td>
             </tr>
           ))}
         </tbody>

@@ -11,6 +11,13 @@ const ReviewsTab = () => {
     dispatch(fetchReviews());
   }, [dispatch]);
 
+
+  if (!Array.isArray(reviews)) {
+    return <div className="max-width">No reviews available</div>;
+  }
+
+
+
   return (
     <div className="current-table product-table">
     <h1>Contact Form Details</h1>
@@ -22,13 +29,13 @@ const ReviewsTab = () => {
         </tr>
       </thead>
       <tbody>
-        {reviews?.map((user) => {
+        {reviews?.map((user) => (
           <tr>
             <td>{user.name}</td>
             <td>{user.message}</td>
             {/* <td><AiTwotoneDelete fontSize={25} /></td> */}
           </tr>
-        })}
+        ))}
       </tbody>
     </table>
   </div>

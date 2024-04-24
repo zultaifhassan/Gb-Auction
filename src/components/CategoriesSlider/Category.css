@@ -96,6 +96,9 @@
     justify-content: center;
     align-items: center;
 }
+.category-slider-inner a{
+    color: #000;
+}
 .category-slider-inner:hover {
     box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 23px;
     border: 1px solid rgb(225, 225, 225);

@@ -10,6 +10,7 @@ import "./Category.css";
 
 // import required modules
 import { Navigation } from "swiper/modules";
+import { Link } from "react-router-dom";
 
 const Category = () => {
   return (
@@ -41,14 +42,18 @@ const Category = () => {
           }}>
           <SwiperSlide>
             <div className="category-slider-inner">
+            <Link to="/auction">
               <img src="/Images/cat/vehicle.png" alt="" />
               <h1>Vehicles</h1>
+              </Link>
             </div>
             </SwiperSlide>
             <SwiperSlide>
             <div className="category-slider-inner">
+              <Link to="/auction">
               <img src="/Images/cat/diamaod.png" alt="" />
               <h1>Jewelery</h1>
+              </Link>
             </div>
             </SwiperSlide>
             <SwiperSlide>

@@ -32,6 +32,11 @@
   color: #fff;
 }
 
+.footer-logo-text a img {
+  height: 60px;
+  margin: 0px;
+}
+
 .footer-logo-text p {
   font-size: 18px;
   font-weight: 400; 

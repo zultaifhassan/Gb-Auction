@@ -14,9 +14,7 @@ import { FiMapPin } from "react-icons/fi";
 import { FiLock } from "react-icons/fi";
 import { CiPhone } from "react-icons/ci";
 
-
 const Signup = () => {
-  
   const { register, handleSubmit, reset } = useForm({
     mode: "onBlur",
   });
@@ -40,11 +38,9 @@ const Signup = () => {
       });
       navigate("/login");
       reset(undefined);
-      
     }
   }, [error, success, navigate, reset]);
 
- 
   return (
     <>
       <Navbar />
@@ -119,6 +115,7 @@ const Signup = () => {
               </form>
               <div className="login-left-side">
                 <div className="login-left-text">
+                  <img src="/Images/logo-02.svg" />
                   <h1>ALREADY HAVE AN ACCOUNT?</h1>
                   <Link to="/login">
                     <button>Login</button>

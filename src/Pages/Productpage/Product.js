@@ -6,8 +6,8 @@ import CountDown from "../../components/Countdown/CountDown";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductById } from "../../Features/product/productSlice";
-import { createBids } from "../../Features/bidding/biddingSlice";
-import { toast } from "react-toastify";
+import { clearState, createBids } from "../../Features/bidding/biddingSlice";
+import { ToastContainer, toast } from "react-toastify";
 import { useForm } from "react-hook-form";
 
 const Product = () => {
@@ -18,22 +18,27 @@ const Product = () => {
   );
   const {user} = useSelector(state => state.login)
   const { success, loading, error} = useSelector((state) => state.bids)
+  const {register,handleSubmit, reset} = useForm()
 
   useEffect(() => {
-    if(success) {
+    if (success) {
       toast.success("Bid Created Successfully", {
         position: "top-right",
-      })
+      });
+      // window.alert("Bid Created Successfully")
     }
-    if(error) {
-      toast.error(error, {
+    if (error) {
+      toast.error(error.message, {
         position: "top-right",
-      })
+      });
+      // window.alert(error)
     }
     dispatch(fetchProductById({ id }));
-    // dispatch(createBids());
-  }, [dispatch, id, success, error]);
-  const {register,handleSubmit} = useForm()
+    dispatch(clearState())
+    reset(undefined)
+  }, [dispatch, id, success, error, reset]);
+
+ 
 
   if (getLoading) return <div>Loading...</div>;
   if (getError) return <div>Error: {getError}</div>;
@@ -42,6 +47,7 @@ const Product = () => {
   return (
     <div>
       <Navbar />
+      <ToastContainer />
       <div className="max-width product-detail-outer">
         <h2>Product Detail</h2>
         <div className="product-detail-inner">
@@ -76,6 +82,7 @@ const Product = () => {
       </div>
       <div className="max-width bidding-form">
         <h2>Place Your Bid</h2>
+        <p>The bid price must be greater than previous bid. Previos bid is $300</p>
         <form onSubmit={handleSubmit((values)=>{
           const data ={
             bid_price:values.bid_price,
@@ -87,7 +94,7 @@ const Product = () => {
           <div className="form-group">
             <input type="text" placeholder="Enter Bid Amount" {...register('bid_price')}/>
           </div>
-          <button type="submit" disabled={loading}>{loading? "Loadding..." : "Submit A Bid"}</button>
+          <button type="submit" disabled={loading} >{loading? "Loadding..." : "Submit A Bid"}</button>
         </form>
       </div>
       <Footer />

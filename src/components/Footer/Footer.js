@@ -21,7 +21,9 @@ const Footer = () => {
       <div className="max-width bottom-footer-inner">
         <div className="footer-logo">
           <div className="footer-logo-text">
-            <Link to="">GB Auction</Link>
+            <Link to="/">
+              <img src="/Images/logo-02 (1).svg" alt="" />
+            </Link>
             <p>
               Explore a vast array of items up for bid, From antiques to
               electronics, satisfaction guaranteed.
