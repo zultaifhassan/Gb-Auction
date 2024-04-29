@@ -20,7 +20,9 @@ export const contactSlice = createSlice({
         clearState: (state) => {
             state.error = null;
             state.success = false;
-          },
+            state.delError = null;
+            state.delSuccess = false;
+        },
     },
     extraReducers:(builder)=>{
         builder.addCase(contactMessage.pending,(state)=>{

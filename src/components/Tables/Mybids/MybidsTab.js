@@ -2,16 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchProducts,
-  deleteProduct,
   clearState,
 } from "../../../Features/product/productSlice";
-import { AiTwotoneDelete } from "react-icons/ai";
 import { toast } from "react-toastify";
-import "./producttable.css";
-import Popup from "../../../components/Popup/Popup";
-import { getProductBids } from "../../../Features/bidding/biddingSlice";
+import "./bids.css";
+import { getProductBids } from "../../../Features/bidding/biddingSlice"
+import Popup from "../../../components/Popup/Popup"
 
-const Product = () => {
+const MybidsTab = () => {
   const dispatch = useDispatch();
   const { products, loading, error, delSuccess, delError } = useSelector(
     (state) => state.products
@@ -19,7 +17,7 @@ const Product = () => {
   const { bids, getLoading, getError } = useSelector((state) => state.bids);
   const [popup, setPopup] = useState(false);
 
-  useEffect(() => { 
+  useEffect(() => {
     dispatch(fetchProducts());
     if (delSuccess) {
       console.log("here");
@@ -42,8 +40,8 @@ const Product = () => {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
   return (
-    <div className="product-table">
-      <h1>Product List</h1>
+    <div className="product-table bids-tables">
+      <h1>Bids Details</h1>
       <table>
         <thead>
           <tr>
@@ -62,18 +60,14 @@ const Product = () => {
                 <img src={item.image} />
               </td>
               <td>{item.title}</td>
-              <td>PKR {item.price}</td>
+              <td>${item.price}</td>
               {/* <td>{item.description}</td> */}
               <td>{item.totalBids}</td>
-              <td className="delete-fetch">
-                <AiTwotoneDelete
-                  fontSize={30}
-                  cursor="Pointer"
-                  onClick={() => dispatch(deleteProduct({ id: item._id }))}
-                />
-                <button onClick={() => {
-                  dispatch(getProductBids({id: item._id}))
-                  setPopup(true)
+              <td>
+                <button
+                  onClick={() => {
+                    dispatch(getProductBids({ id: item._id }));
+                    setPopup(true);
                   }}>View Bids</button>
               </td>
             </tr>
@@ -104,7 +98,7 @@ const Product = () => {
                       <td>{bid.user_id.email}</td>
                       <td>{bid.user_id.phone}</td>
                       <td>{bid.user_id.cnic}</td>
-                      <td>PKR {bid.bid_price}</td>
+                      <td>${bid.bid_price}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -119,4 +113,4 @@ const Product = () => {
   );
 };
 
-export default Product;
+export default MybidsTab;

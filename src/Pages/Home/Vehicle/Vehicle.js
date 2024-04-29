@@ -127,14 +127,14 @@ const Vehicle = () => {
                             <img src="/Images/hammer.png" alt="" />
                             <span>
                               <p>Current Bid</p>
-                              <h5>$880.00</h5>
+                              <h5>PKR {item.maxBid === null?"No Bids":item.maxBid}</h5>
                             </span>
                           </div>
                           <div className="buynow-biding">
                             <img src="/Images/dollar.png" alt="" />
                             <span>
                               <p>Buy Now</p>
-                              <h5>${item.price}</h5>
+                              <h5>PKR {item.price}</h5>
                             </span>
                           </div>
                         </div>
@@ -143,7 +143,7 @@ const Vehicle = () => {
                             <CountDown targetDate={item.date} id={item._id} />
                           </div>
                           <div className="total-numer-bids">
-                            <h3>30 Bids</h3>
+                            <h3>{item.totalBids} Bids</h3>
                           </div>
                         </div>
                       </div>

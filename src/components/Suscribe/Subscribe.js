@@ -54,7 +54,7 @@ const Subscribe = () => {
                   {...register("email", { required: true })}
                 />
                 <button type="submit">
-                  {loading ? <Loader2 /> : "Subscribe"}
+                  {loading ? "Submitting" : "Subscribe"}
                 </button>
               </span>
             </form>

@@ -16,29 +16,29 @@ const Product = () => {
   const { product, getLoading, getError } = useSelector(
     (state) => state.products
   );
-  const {user} = useSelector(state => state.login)
-  const { success, loading, error} = useSelector((state) => state.bids)
-  const {register,handleSubmit, reset} = useForm()
+  const { user, token } = useSelector((state) => state.login);
+  const { success, loading, error } = useSelector((state) => state.bids);
+  const { register, handleSubmit, reset } = useForm();
 
+  useEffect(() => {
+    dispatch(fetchProductById({ id }));
+  }, [dispatch, id]);
   useEffect(() => {
     if (success) {
       toast.success("Bid Created Successfully", {
         position: "top-right",
       });
-      // window.alert("Bid Created Successfully")
+      reset(undefined);
+      dispatch(clearState());
     }
     if (error) {
-      toast.error(error.message, {
+      toast.error(error, {
         position: "top-right",
       });
-      // window.alert(error)
+      reset(undefined);
+      dispatch(clearState());
     }
-    dispatch(fetchProductById({ id }));
-    dispatch(clearState())
-    reset(undefined)
-  }, [dispatch, id, success, error, reset]);
-
- 
+  }, [success, error, reset]);
 
   if (getLoading) return <div>Loading...</div>;
   if (getError) return <div>Error: {getError}</div>;
@@ -59,7 +59,7 @@ const Product = () => {
             <p>{product.description}</p>
             <div className="price-detail">
               <h2>Current Price:</h2>
-              <span>${product.price}</span>
+              <span>PKR {product.price}</span>
             </div>
             <div className="ending-detail">
               <h2>This Auction End In</h2>
@@ -70,11 +70,11 @@ const Product = () => {
             <div className="total-number-bids">
               <div className="active-bids">
                 <h2>Active Bids</h2>
-                <p>30 Bids</p>
+                <p>{product.totalBids} Bids</p>
               </div>
               <div className="highest-bids">
                 <h2>Highest Bid</h2>
-                <p>$ 400</p>
+                <p>{product?.maxBid ? `PKR ${product?.maxBid}` : "No Bids Yet"}</p>
               </div>
             </div>
           </div>
@@ -82,19 +82,34 @@ const Product = () => {
       </div>
       <div className="max-width bidding-form">
         <h2>Place Your Bid</h2>
-        <p>The bid price must be greater than previous bid. Previos bid is $300</p>
-        <form onSubmit={handleSubmit((values)=>{
-          const data ={
-            bid_price:values.bid_price,
-            product: id,
-            user_id: user.user._id
-          }
-          dispatch(createBids({token:user.token,data}))
-        })}>
+        <p>
+          The bid price must be greater than previous bid. Previos bid is PKR {product?.maxBid ? `$${product?.maxBid}` : "No Bids Yet"}
+        </p>
+        <form
+          onSubmit={handleSubmit((values) => {
+            if (!user?.user) {
+              toast.error("Please Login to Bid", {
+                position: "top-right",
+              });
+            } else {
+              const data = {
+                bid_price: values.bid_price,
+                product: id,
+                user_id: user.user._id,
+              };
+              dispatch(createBids({ token: user.token, data }));
+            }
+          })}>
           <div className="form-group">
-            <input type="text" placeholder="Enter Bid Amount" {...register('bid_price')}/>
+            <input
+              type="text"
+              placeholder="Enter Bid Amount"
+              {...register("bid_price")}
+            />
           </div>
-          <button type="submit" disabled={loading} >{loading? "Loadding..." : "Submit A Bid"}</button>
+          <button type="submit" disabled={loading}>
+            {loading ? "Loadding..." : "Submit A Bid"}
+          </button>
         </form>
       </div>
       <Footer />

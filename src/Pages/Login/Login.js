@@ -100,7 +100,7 @@ const Login = () => {
               </form>
               <div className="login-left-side">
                 <div className="login-left-text">
-                  <img src="/Images/logo-02.svg" />
+                  <img src="/Images/logo-02 (1).svg" />
                   <h1>
                     IF NEW CREATE <br /> ACCOUNT?
                   </h1>

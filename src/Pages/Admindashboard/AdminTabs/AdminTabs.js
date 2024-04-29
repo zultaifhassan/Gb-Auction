@@ -11,7 +11,7 @@ const AdminTabs = () => {
   };
   return (
     <div className="user-tabs">
-        <h1>Products Detail</h1>
+        <h1>Users Detail</h1>
         <div className="tabs">
           <button
             onClick={() => handleTabClick("tab1")}

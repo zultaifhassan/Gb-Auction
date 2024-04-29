@@ -21,6 +21,7 @@ const ConatctTable = () => {
       toast.error(delError, {
         position: "top-right",
       });
+      dispatch(clearState());
     }
   }, [dispatch, delSuccess, delError]);
 

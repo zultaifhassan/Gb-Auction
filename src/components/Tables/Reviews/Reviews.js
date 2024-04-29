@@ -20,7 +20,7 @@ const ReviewsTab = () => {
 
   return (
     <div className="current-table product-table">
-    <h1>Contact Form Details</h1>
+    <h1>Buyers Feedback Details</h1>
     <table>
       <thead>
         <tr>

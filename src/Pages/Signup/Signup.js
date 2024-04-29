@@ -115,7 +115,7 @@ const Signup = () => {
               </form>
               <div className="login-left-side">
                 <div className="login-left-text">
-                  <img src="/Images/logo-02.svg" />
+                  <img src="/Images/logo-02 (1).svg" />
                   <h1>ALREADY HAVE AN ACCOUNT?</h1>
                   <Link to="/login">
                     <button>Login</button>

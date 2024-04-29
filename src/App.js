@@ -9,7 +9,6 @@ import Signup from "./Pages/Signup/Signup";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import Dashlayout from "./Pages/Dashboard/dashlayout/Dashlayout";
 import Profile from "./Pages/Dashboard/Profile/Profile";
-import Mybids from "./Pages/Dashboard/Mybids/Mybids";
 import Product from "./Pages/Productpage/Product";
 import Admin from "./Pages/Admindashboard/Admin";
 import ConatctTable from "./components/Tables/Contact/ConatctTable";
@@ -19,6 +18,7 @@ import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import AdminTabs from "./Pages/Admindashboard/AdminTabs/AdminTabs";
 import ReviewForm from "./Pages/Dashboard/ReviewForm/ReviewForm";
+import MybidsTab from "./components/Tables/Mybids/MybidsTab";
 function App() {
   return (
     <div>
@@ -33,8 +33,8 @@ function App() {
         <Route path="/dashboard" element={<Dashlayout />}>
           <Route path="dash-main" element={<Dashboard/>} />
           <Route path="profile" element={<Profile />} />
-          <Route path="mybids" element={<Mybids />} />
           <Route path="review" element={<ReviewForm />} />
+          <Route path="mybids" element={<MybidsTab />} />
         </Route>
         <Route path="/admin" element={<Admin />}>
           <Route path="admin-main" element={<DashboardMain />} />

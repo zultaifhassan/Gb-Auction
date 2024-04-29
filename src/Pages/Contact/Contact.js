@@ -14,6 +14,9 @@ const Contact = () => {
   const { loading, error, success } = useSelector(
     (state) => state.contactMessage
   );
+  const { register, handleSubmit, reset } = useForm({
+    mode: "onBlur",
+  });
 
   const handleContact = (values) => {
     dispatch(contactMessage(values));
@@ -24,18 +27,19 @@ const Contact = () => {
       toast.error("Error Occured", {
         position: "top-right",
       });
+      reset(undefined)
+      dispatch(clearState());
     }
     if (success) {
       toast.success("submitted", {
         position: "top-right",
       });
+      reset(undefined)
       dispatch(clearState());
     }
   }, [dispatch, error, success]);
 
-  const { register, handleSubmit } = useForm({
-    mode: "onBlur",
-  });
+  
 
   return (
     <>
